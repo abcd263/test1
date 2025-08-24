@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Durga Puja Premium — Static Single‑Page (BN)</title>
+<meta name="description" content="React-এর মতো প্রিমিয়াম ডিজাইন, কিন্তু স্ট্যাটিক HTML/CSS/JS। একটি পেজেই ইতিহাস, ইভেন্ট, গ্যালারি, ডোনেশন ও যোগাযোগ।">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@600;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="#/home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>আপনার ক্লাব/পাড়া দুর্গোৎসব কমিটি</span>
+    </a>
+    <nav class="main-nav" aria-label="প্রধান ন্যাভিগেশন">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menu">মেনু</button>
+      <ul id="menu" class="menu">
+        <li><a data-link href="#/home">হোম</a></li>
+        <li><a data-link href="#/about">ইতিহাস</a></li>
+        <li><a data-link href="#/events">সূচি</a></li>
+        <li><a data-link href="#/gallery">গ্যালারি</a></li>
+        <li><a data-link href="#/donate">ডোনেশন</a></li>
+        <li><a data-link href="#/contact">যোগাযোগ</a></li>
+        <li><button id="themeToggle" class="btn btn-ghost" aria-label="থিম টগল">🌓</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="app" tabindex="-1">
+  
+<section class="route hero" data-route="/home">
+  <div class="glow"></div>
+  <div class="container hero-inner motion-fade-up">
+    <div class="hero-copy">
+      <span class="badge">শারদীয় দুর্গোৎসব ২০২৫</span>
+      <h1>শুভ বিজয়া —</h1>
+      <p>React ছাড়াই একই প্রিমিয়াম UI। এক পেজেই—ইতিহাস, ইভেন্ট, গ্যালারি, ডোনেশন, যোগাযোগ।</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" data-link href="#/events">ইভেন্ট সূচি</a>
+        <a class="btn" data-link href="#/donate">ডোনেট করুন</a>
+      </div>
+      <div class="card info" style="margin-top:16px;max-width:560px">
+        <div class="card-body">
+          <strong>পরবর্তী অনুষ্ঠান:</strong> <span id="next-event-label">লোড হচ্ছে…</span>
+          <span id="next-event-countdown" class="badge"></span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-media motion-zoom-in">
+      <img src="assets/logo.svg" alt="দুর্গোৎসবের প্রতীকী লোগো" width="320" height="320" loading="eager">
+    </div>
+  </div>
+
+  <div class="container section">
+    <h2 class="section-title">এই বছরে কী কী?</h2>
+    <div class="cards">
+      <a class="card-link motion-fade-up" data-link href="#/about"><h3>ইতিহাস ও উদ্দেশ্য</h3><p class="muted">ঐতিহ্য, লক্ষ্য, কমিটি</p></a>
+      <a class="card-link motion-fade-up" data-link href="#/events"><h3>ইভেন্ট সূচি</h3><p class="muted">মহালয়া—বিজয়া দশমী</p></a>
+      <a class="card-link motion-fade-up" data-link href="#/gallery"><h3>ফটো গ্যালারি</h3><p class="muted">গত বছরের ঝলক</p></a>
+      <a class="card-link motion-fade-up" data-link href="#/donate"><h3>ডোনেশন</h3><p class="muted">bKash/Nagad/ব্যাংক</p></a>
+    </div>
+  </div>
+
+  <div class="container section">
+    <h2 class="section-title">ঘোষণা ও আপডেট</h2>
+    <ul class="updates motion-fade-up">
+      <li>স্বেচ্ছাসেবক নিবন্ধন—<a data-link href="#/contact">ফর্ম পূরণ করুন</a></li>
+      <li>আলপনা প্রতিযোগিতা—শেষ তারিখ: ২০ সেপ্টেম্বর ২০২৫</li>
+      <li>বিজয়া সংবর্ধনা: ২ অক্টোবর ২০২৫ বিকাল ৫টা</li>
+    </ul>
+  </div>
+</section>
+
+  
+<section class="route container section" data-route="/about" hidden>
+  <h1 class="page-title">পূজার ইতিহাস</h1>
+  <div class="card motion-fade-up"><div class="card-body">
+    আমাদের পাড়ায় শারদীয় দুর্গোৎসবের সূচনা হয়েছিল বহু বছর আগে। প্রতিবছর শিল্প, সংস্কৃতি, ভক্তি ও সামাজিকতার মিলনে আমরা দেবীকে আহ্বান জানাই।
+  </div></div>
+
+  <h2 class="sub-title">কমিটি ও সদস্য</h2>
+  <div class="cards two-col">
+    <div class="card motion-fade-up"><div class="card-body">সভাপতি: নাম</div></div>
+    <div class="card motion-fade-up"><div class="card-body">সহ-সভাপতি: নাম</div></div>
+    <div class="card motion-fade-up"><div class="card-body">সাধারণ সম্পাদক: নাম</div></div>
+    <div class="card motion-fade-up"><div class="card-body">কোষাধ্যক্ষ: নাম</div></div>
+    <div class="card motion-fade-up"><div class="card-body">সাংস্কৃতিক সম্পাদক: নাম</div></div>
+    <div class="card motion-fade-up"><div class="card-body">স্বেচ্ছাসেবক সমন্বয়ক: নাম</div></div>
+  </div>
+
+  <h2 class="sub-title">স্পন্সর</h2>
+  <div class="card motion-fade-up"><div class="card-body">স্পন্সরদের লোগো যুক্ত করুন।</div></div>
+</section>
+
+  
+<section class="route container section" data-route="/events" hidden>
+  <h1 class="page-title">ইভেন্ট সূচি ২০২৫</h1>
+  <p class="notice motion-fade-up">⚠️ সময়সূচি স্থানীয় পঞ্জিকা/কমিটির সিদ্ধান্ত অনুযায়ী সামান্য পরিবর্তিত হতে পারে—চূড়ান্ত সময় নিশ্চিত করুন।</p>
+  <ul class="events timeline">
+    <li class="event motion-fade-up">
+      <div class="event-date"><time datetime="2025-09-21">2025-09-21</time></div>
+      <div class="event-body"><h3>মহালয়া</h3><p>চণ্ডীপাঠ ও দেবী বন্দনা।</p><p><strong>সময়:</strong> 06:00</p></div>
+    </li>
+    <li class="event motion-fade-up">
+      <div class="event-date"><time datetime="2025-09-28">2025-09-28</time></div>
+      <div class="event-body"><h3>ষষ্ঠী</h3><p>কল্পারম্ভ, বোধন, আমন্ত্রণ ও অধিবাস।</p><p><strong>সময়:</strong> 18:00</p></div>
+    </li>
+    <li class="event motion-fade-up">
+      <div class="event-date"><time datetime="2025-09-29">2025-09-29</time></div>
+      <div class="event-body"><h3>সপ্তমী</h3><p>নবপত্রিকা স্নান, সপ্তমীর পূজা।</p><p><strong>সময়:</strong> 07:30</p></div>
+    </li>
+    <li class="event motion-fade-up">
+      <div class="event-date"><time datetime="2025-09-30">2025-09-30</time></div>
+      <div class="event-body"><h3>অষ্টমী</h3><p>সন্ধিপূজা, কুমারী পূজা (যদি থাকে)।</p><p><strong>সময়:</strong> 10:00</p></div>
+    </li>
+    <li class="event motion-fade-up">
+      <div class="event-date"><time datetime="2025-10-01">2025-10-01</time></div>
+      <div class="event-body"><h3>নবমী</h3><p>নবমী পূজা ও হোম।</p><p><strong>সময়:</strong> 10:00</p></div>
+    </li>
+    <li class="event motion-fade-up">
+      <div class="event-date"><time datetime="2025-10-02">2025-10-02</time></div>
+      <div class="event-body"><h3>বিজয়া দশমী</h3><p>দেবী বিসর্জন, সিন্দুর খেলা, প্রণাম ও মিষ্টিমুখ।</p><p><strong>সময়:</strong> 15:30</p></div>
+    </li>
+  </ul>
+</section>
+
+  
+<section class="route container section" data-route="/gallery" hidden>
+  <h1 class="page-title">ফটো গ্যালারি</h1>
+  <div class="gallery">
+    <a class="gallery-item motion-fade-up" href="assets/gallery-1.svg"><img src="assets/gallery-1.svg" alt="গ্যালারি ছবি 1" loading="lazy" width="600" height="400"></a>
+<a class="gallery-item motion-fade-up" href="assets/gallery-2.svg"><img src="assets/gallery-2.svg" alt="গ্যালারি ছবি 2" loading="lazy" width="600" height="400"></a>
+<a class="gallery-item motion-fade-up" href="assets/gallery-3.svg"><img src="assets/gallery-3.svg" alt="গ্যালারি ছবি 3" loading="lazy" width="600" height="400"></a>
+<a class="gallery-item motion-fade-up" href="assets/gallery-4.svg"><img src="assets/gallery-4.svg" alt="গ্যালারি ছবি 4" loading="lazy" width="600" height="400"></a>
+<a class="gallery-item motion-fade-up" href="assets/gallery-5.svg"><img src="assets/gallery-5.svg" alt="গ্যালারি ছবি 5" loading="lazy" width="600" height="400"></a>
+<a class="gallery-item motion-fade-up" href="assets/gallery-6.svg"><img src="assets/gallery-6.svg" alt="গ্যালারি ছবি 6" loading="lazy" width="600" height="400"></a>
+<a class="gallery-item motion-fade-up" href="assets/gallery-7.svg"><img src="assets/gallery-7.svg" alt="গ্যালারি ছবি 7" loading="lazy" width="600" height="400"></a>
+<a class="gallery-item motion-fade-up" href="assets/gallery-8.svg"><img src="assets/gallery-8.svg" alt="গ্যালারি ছবি 8" loading="lazy" width="600" height="400"></a>
+  </div>
+  <p class="muted">টিপ: ছবিতে ক্লিক করলে লাইটবক্সে বড় আকারে দেখবেন।</p>
+</section>
+
+  
+<section class="route container section" data-route="/donate" hidden>
+  <h1 class="page-title">ডোনেশন</h1>
+  <div data-tabs>
+    <div class="tab-row">
+      <button class="btn" data-tab="bkash">bKash</button>
+      <button class="btn" data-tab="nagad">Nagad</button>
+      <button class="btn" data-tab="bank">ব্যাংক</button>
+      <button class="btn" data-tab="intl">আন্তর্জাতিক</button>
+    </div>
+    <div class="card"><div class="card-body">
+      <div data-pane="bkash">
+        <h2>bKash নম্বর: 01XXXXXXXXX</h2>
+        <p class="muted">মার্চেন্ট/পার্সোনাল—যেটি ব্যবহার করেন সেটি লিখুন</p>
+        <div class="split">
+          <div class="card"><div class="card-body">QR (প্লেসহোল্ডার)</div></div>
+          <div class="muted">ট্রান্সফারের সময় reference-এ আপনার নাম/মোবাইল দিন।</div>
+        </div>
+      </div>
+      <div data-pane="nagad" hidden>
+        <h2>Nagad নম্বর: 01XXXXXXXXX</h2>
+        <div class="card"><div class="card-body">QR (প্লেসহোল্ডার)</div></div>
+      </div>
+      <div data-pane="bank" hidden>
+        <h2>ব্যাংক ট্রান্সফার</h2>
+        <div class="cards two-col">
+          <div class="card"><div class="card-body">ব্যাংক: আপনার ব্যাংক</div></div>
+          <div class="card"><div class="card-body">শাখা: আপনার শাখা</div></div>
+          <div class="card"><div class="card-body">অ্যাকাউন্ট: 0000 0000 0000</div></div>
+          <div class="card"><div class="card-body">SWIFT/রাউটিং: XXXXXX</div></div>
+        </div>
+      </div>
+      <div data-pane="intl" hidden>
+        <h2>আন্তর্জাতিক অনুদান</h2>
+        <p>Razorpay/Instamojo (ভারত) বা আন্তর্জাতিক গেটওয়ে লিংক যুক্ত করুন।</p>
+        <a class="btn btn-primary" href="#" aria-disabled="true">পেমেন্ট লিংক যুক্ত করুন</a>
+      </div>
+    </div></div>
+  </div>
+  <p class="muted">দ্রষ্টব্য: অনলাইন পেমেন্ট সক্ষম করতে প্রতিষ্ঠান/ক্লাবের নামে KYC সম্পন্ন করতে হবে।</p>
+</section>
+
+  
+<section class="route container section" data-route="/contact" hidden>
+  <h1 class="page-title">যোগাযোগ</h1>
+  <div class="card motion-fade-up"><div class="card-body">
+    <form action="#" method="post">
+      <div class="grid-2">
+        <div><label for="name">নাম</label><input id="name" name="name" required></div>
+        <div><label for="phone">মোবাইল</label><input id="phone" name="phone" required></div>
+      </div>
+      <div class="mt"><label for="email">ইমেল</label><input id="email" type="email" name="email"></div>
+      <div class="mt"><label for="msg">বার্তা</label><textarea id="msg" name="msg" rows="4" required></textarea></div>
+      <div class="mt"><button class="btn btn-primary" type="submit">পাঠান</button></div>
+    </form>
+  </div></div>
+
+  <h2 class="sub-title">আমাদের অবস্থান</h2>
+  <div class="card motion-fade-up"><div class="card-body">
+    <iframe title="Google Map placeholder" src="https://maps.google.com/maps?q=Dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="320" style="border:0;border-radius:12px" loading="lazy"></iframe>
+  </div></div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>যোগাযোগ</h3>
+      <p>ফোন: <a href="tel:+8801XXXXXXXXX">+8801XXXXXXXXX</a><br>ইমেল: <a href="mailto:hello@yourpuja2025.example.com">hello@yourpuja2025.example.com</a></p>
+      <p>ঠিকানা: আপনার রোড/এলাকা, শহর/থানা, ঢাকা 1200</p>
+    </div>
+    <div>
+      <h3>দ্রুত লিংক</h3>
+      <ul class="footer-links">
+        <li><a data-link href="#/events">সূচি</a></li>
+        <li><a data-link href="#/gallery">গ্যালারি</a></li>
+        <li><a data-link href="#/donate">ডোনেট করুন</a></li>
+        <li><a data-link href="#/contact">যোগাযোগ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>সোশ্যাল</h3>
+      <p><a href="#" aria-label="Facebook">Facebook</a> · <a href="#" aria-label="Instagram">Instagram</a> · <a href="#" aria-label="YouTube">YouTube</a></p>
+    </div>
+  </div>
+  <div class="container legal">
+    <p>© 2025 আপনার ক্লাব/পাড়া দুর্গোৎসব কমিটি. সর্বস্বত্ব সংরক্ষিত।</p>
+  </div>
+</footer>
+
+</body>
+</html>
