@@ -27,6 +27,7 @@
         <li><a data-link href="#/gallery">গ্যালারি</a></li>
         <li><a data-link href="#/donate">ডোনেশন</a></li>
         <li><a data-link href="#/contact">যোগাযোগ</a></li>
+        <li><a data-link href="#/admin">অ্যাডমিন</a></li>
         <li><button id="themeToggle" class="btn btn-ghost" aria-label="থিম টগল">🌓</button></li>
       </ul>
     </nav>
@@ -207,6 +208,20 @@
   <h2 class="sub-title">আমাদের অবস্থান</h2>
   <div class="card motion-fade-up"><div class="card-body">
     <iframe title="Google Map placeholder" src="https://maps.google.com/maps?q=Dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="320" style="border:0;border-radius:12px" loading="lazy"></iframe>
+  </div></div>
+</section>
+
+  
+<section class="route container section" data-route="/admin" hidden>
+  <h1 class="page-title">অ্যাডমিন প্যানেল</h1>
+  <div class="card motion-fade-up"><div class="card-body">
+    <p>এটি একটি ডেমো অ্যাডমিন প্যানেল। এখানে আপনি কন্টেন্ট এডিট, ইভেন্ট যোগ/পরিবর্তন, আপডেট পোস্ট ইত্যাদি করতে পারেন (স্ট্যাটিক সাইটে শুধুমাত্র UI)।</p>
+    <form>
+      <div class="mt"><label for="eventTitle">ইভেন্ট শিরোনাম</label><input id="eventTitle" name="eventTitle"></div>
+      <div class="mt"><label for="eventDate">ইভেন্ট তারিখ</label><input id="eventDate" name="eventDate" type="date"></div>
+      <div class="mt"><button class="btn btn-primary" type="submit">যোগ করুন</button></div>
+    </form>
+    <p class="muted">নোট: স্ট্যাটিক সাইটে ডেটা সংরক্ষণ সম্ভব নয়, শুধুমাত্র UI দেখানো হয়েছে।</p>
   </div></div>
 </section>
 
