@@ -120,22 +120,58 @@ document.querySelectorAll('[data-tabs]').forEach((tabs)=>{
   setInterval(update, 60000);
 })();
 
-// Admin panel demo event add (only browser memory)
+// Admin panel with full control (add, edit, delete, localStorage)
 (function(){
   const form = document.getElementById('adminEventForm');
   const list = document.getElementById('adminEventList');
   if(!form || !list) return;
-  const events = [];
+
+  // Load events from localStorage
+  let events = JSON.parse(localStorage.getItem('adminEvents') || '[]');
+
+  function renderEvents() {
+    list.innerHTML = '';
+    events.forEach((ev, idx) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span>${ev.title} (${ev.date})</span>
+        <button class="btn btn-ghost" data-edit="${idx}">✏️</button>
+        <button class="btn btn-ghost" data-del="${idx}">🗑️</button>
+      `;
+      list.appendChild(li);
+    });
+  }
+
+  // Add event
   form.addEventListener('submit', function(e){
     e.preventDefault();
     const title = form.eventTitle.value.trim();
     const date = form.eventDate.value;
     if(title && date){
       events.push({title, date});
-      const li = document.createElement('li');
-      li.textContent = `${title} (${date})`;
-      list.appendChild(li);
+      localStorage.setItem('adminEvents', JSON.stringify(events));
+      renderEvents();
       form.reset();
     }
   });
+
+  // Edit/Delete event
+  list.addEventListener('click', function(e){
+    if(e.target.dataset.del){
+      events.splice(e.target.dataset.del, 1);
+      localStorage.setItem('adminEvents', JSON.stringify(events));
+      renderEvents();
+    }
+    if(e.target.dataset.edit){
+      const ev = events[e.target.dataset.edit];
+      form.eventTitle.value = ev.title;
+      form.eventDate.value = ev.date;
+      // Remove old event, will be replaced on submit
+      events.splice(e.target.dataset.edit, 1);
+      localStorage.setItem('adminEvents', JSON.stringify(events));
+      renderEvents();
+    }
+  });
+
+  renderEvents();
 })();
