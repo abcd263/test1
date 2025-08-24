@@ -1,4 +1,3 @@
-
 // Theme toggle
 (function(){
   const root = document.documentElement;
@@ -119,4 +118,24 @@ document.querySelectorAll('[data-tabs]').forEach((tabs)=>{
   }
   update();
   setInterval(update, 60000);
+})();
+
+// Admin panel demo event add (only browser memory)
+(function(){
+  const form = document.getElementById('adminEventForm');
+  const list = document.getElementById('adminEventList');
+  if(!form || !list) return;
+  const events = [];
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const title = form.eventTitle.value.trim();
+    const date = form.eventDate.value;
+    if(title && date){
+      events.push({title, date});
+      const li = document.createElement('li');
+      li.textContent = `${title} (${date})`;
+      list.appendChild(li);
+      form.reset();
+    }
+  });
 })();
